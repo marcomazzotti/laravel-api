@@ -17,7 +17,10 @@
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
                     <td>{{ $project->slug }}</td>
-                    <td></td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->slug) }}"><i
+                                class="fa-solid fa-eye"></i></a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
