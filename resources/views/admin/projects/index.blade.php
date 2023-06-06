@@ -30,8 +30,20 @@
                                 class="fa-solid fa-eye"></i></a>
                         <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project->slug) }}"><i
                                 class="fa-solid fa-pen"></i></a>
-                        {{-- <a class="btn btn-danger" href="{{ route('admin.projects.delete', $project->slug) }}"><i
-                                class="fa-solid fa-trash"></i></a> --}}
+                        <form action="{{ route('admin.projects.destroy', $project->slug) }}" class="d-inline-block"
+                            method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="showAlert()"><i
+                                    class="fa-solid fa-trash"></i></button>
+                            <script>
+                                function showAlert() {
+                                    if (confirm("Sei sicuro di voler eliminare questo progetto?")) {
+                                        document.getElementById("delete-form").submit();
+                                    }
+                                }
+                            </script>
+                        </form>
                     </td>
                 </tr>
             @endforeach
