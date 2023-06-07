@@ -20,6 +20,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        $types = Type::all();
         return view("admin.projects.index", compact("projects"));
     }
 
@@ -45,7 +46,7 @@ class ProjectController extends Controller
         $data = $request->validated();
         $data["slug"] = Str::slug($data["title"]);
         $project = Project::create($data);
-        return redirect()->route("admin.projects.index")->with("message", "Post creato correttamente");
+        return redirect()->route("admin.projects.index")->with("message", "Progetto creato correttamente");
     }
 
     /**
@@ -83,7 +84,7 @@ class ProjectController extends Controller
         $data = $request->validated();
         $data["slug"] = Str::slug($data["title"]);
         $project->update($data);
-        return redirect()->route("admin.projects.index")->with("message", "Post modificato correttamente");
+        return redirect()->route("admin.projects.index")->with("message", "Progetto modificato correttamente");
     }
 
     /**

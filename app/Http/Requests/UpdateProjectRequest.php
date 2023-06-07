@@ -26,7 +26,8 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             "title" => ["required", Rule::unique("projects")->ignore($this->project)],
-            "content" => "required"
+            "content" => "required",
+            "types_id" => ["nullable", "exists:types,id"],
         ];
     }
 }
