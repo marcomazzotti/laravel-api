@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 @section('content')
     <h1>{{ $project->title }}</h1>
-    @if ($project->category)
-        <p>Categoria: {{ $project->type->name }}</p>
+    @if ($project->type)
+        <p>Tipo: {{ $project->type->name }}</p>
     @else
         <p>Nessun tipo</p>
     @endif
