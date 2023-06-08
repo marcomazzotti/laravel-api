@@ -6,7 +6,14 @@
     @else
         <p>Nessun tipo</p>
     @endif
-    <p>{{ $project->slug }}</p>
-    <p>{{ $project->content }}</p>
+    <h5>Tecnologie: </h5>
+    @forelse ($project->technologies as $technology)
+        <span>{{ $technology->name }}{{ $loop->last ? '.' : ',' }}</span>
+    @empty
+        <p>Nessuna tecnologia specificata</p>
+    @endforelse
+    <p></p>
+    <p>Slug: {{ $project->slug }}</p>
+    <p>Contenuto: {{ $project->content }}</p>
     <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Torna alla home</a>
 @endsection
