@@ -19,7 +19,7 @@
         </div>
         <div class="mb-3">
             <label for="type">Tipo</label>
-            <select class="form-select" id="type" name="type_id">
+            <select class="form-select" id="type_id" name="type_id">
                 <option></option>
                 @foreach ($types as $type)
                     <option @selected($type->id == old("$type->id", $project->type?->id)) value="{{ $type->id }}">{{ $type->name }}</option>

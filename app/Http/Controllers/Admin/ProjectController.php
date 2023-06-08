@@ -20,6 +20,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        // dd($projects);
         $types = Type::all();
         return view("admin.projects.index", compact("projects"));
     }
@@ -81,6 +82,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        // dd($request->all());
         $data = $request->validated();
         $data["slug"] = Str::slug($data["title"]);
         $project->update($data);
