@@ -28,6 +28,7 @@ class StoreProjectRequest extends FormRequest
             "title" => ["required", Rule::unique("projects")],
             "content" => "required",
             "type_id" => ["nullable", "exists:types,id"],
+            "technologies" => ["nullable", "exists:technologies,id"]
         ];
     }
 }

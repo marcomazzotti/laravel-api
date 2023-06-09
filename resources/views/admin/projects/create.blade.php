@@ -20,9 +20,22 @@
             <select class="form-select" id="type" name="type_id">
                 <option></option>
                 @foreach ($types as $type)
-                    <option @selected(old('type_id') === $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                    <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="mb-3">
+            @foreach ($technologies as $technology)
+                <div class="form-check">
+                    <input class="form-check-input" name="technologies[]" type="checkbox" value="{{ $technology->id }}"
+                        id="technology-{{ $technology->id }}" @checked(in_array($technology->id, old('technologies', [])))>
+                    <label class="form-check-label" for="technology-{{ $technology->id }}">
+                        {{ $technology->name }}
+                    </label>
+                </div>
+            @endforeach
+        </div>
+        <div class="mb-3">
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Contenuto</label>
