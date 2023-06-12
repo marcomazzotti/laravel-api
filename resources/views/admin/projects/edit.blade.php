@@ -27,6 +27,7 @@
             </select>
         </div>
         <div class="mb-3">
+            <label for="type">Technologie</label>
             @foreach ($technologies as $technology)
                 <div class="form-check">
                     <input class="form-check-input" name="technologies[]" type="checkbox" value="{{ $technology->id }}"
